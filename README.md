@@ -1,13 +1,14 @@
 # PUBG Mobile Servers Tracing
 
 Интернет заходит через роутер mikrotik  (его беру как пример)   
-так как важно чтобы была возможность смотреть соединения которые проходят через него   
-подойдет более-мение продвинутый роутер   
-У меня команда выглядит так `ip/firewall/connection/print where  src-address ~"192.168.200.105"` где `192.168.200.105   ` айпи моего айпада в локальной сети   
-так же нам интересен только `udp` протокол, так как игра использует его для передачи собыйтий. 
+так как важно чтобы была возможность смотреть соединения которые проходят через него подойдет более-мение продвинутый роутер.   
+У меня команда выглядит так    
+`ip/firewall/connection/print where  src-address ~"192.168.200.105"`    
+где `192.168.200.105` айпи моего айпада в локальной сети.  
+Так же нам интересен только `udp` протокол, так как игра использует его для передачи собыйтий. 
 
 ```
-[denysobukhov@MikroTik-I] > ip/firewall/connection/print where  src-address ~"192.168.200.105" and protocol=udp
+[d@MikroTik-I] > ip/firewall/connection/print where  src-address ~"192.168.200.105" and protocol=udp
 Flags: S - SEEN-REPLY; A - ASSURED; C - CONFIRMED; F - FASTTRACK; s - SRCNAT
 Columns: PROTOCOL, SRC-ADDRESS, SRC-PORT, DST-ADDRESS, DST-PORT, TIMEOUT, ORIG-RATE, REPL-RATE, ORIG-PACKETS, REPL-PACKETS, ORIG-BYTES, REPL-BYTES
 #       PROTOCOL  SRC-ADDRESS      SRC-PORT  DST-ADDRESS     DST-PORT  TIMEOUT  ORIG-RATE  REPL-RATE  ORIG-PACKETS  REPL-PACKETS  ORIG-BYTES  REPL-BYTES
